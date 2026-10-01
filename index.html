@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>壺鑒 · 紫砂壺權威鑒定</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <div class="brand"><span>壺</span>壺鑒 HuJian</div>
+    <nav id="nav">
+      <button data-view="home" class="active">首頁</button>
+      <button data-view="ai">免費 AI 初檢</button>
+      <button data-view="spectral">光譜元素檢測</button>
+      <button data-view="mall">臻品原礦商城</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HOME：紫砂壺文化與數字展廳 -->
+  <section class="view active" id="view-home">
+
+    <!-- 展廳首屏：水墨微動效 -->
+    <div class="hall-hero">
+      <div class="ink-wash" aria-hidden="true">
+        <span class="blot b1"></span><span class="blot b2"></span><span class="blot b3"></span><span class="blot b4"></span>
+      </div>
+      <!-- 茶葉漂浮 -->
+      <div class="tea-leaf leaf1"></div>
+      <div class="tea-leaf leaf2"></div>
+      <div class="tea-leaf leaf3"></div>
+      <div class="tea-leaf leaf4"></div>
+      <div class="tea-leaf leaf5"></div>
+      <div class="tea-leaf leaf6"></div>
+      <div class="tea-leaf leaf7"></div>
+
+      <div class="hero-pot"></div>
+      <svg class="brush-swoosh" viewBox="0 0 400 120" aria-hidden="true">
+        <path d="M10 90 Q 120 10, 220 55 T 390 30" fill="none" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <p class="eyebrow-cn">數字展廳</p>
+      <h1>方寸之間，<br>藏著紫砂六百年。</h1>
+      <p class="lead">從一捧礦料到一把壺，紫砂的门道从来不只是「值不值钱」。這裡是認識泥料、器型與歷代匠人的起點——看懂之後，再去鑒定。</p>
+      <button class="btn hall-cta" data-goto="ai">開始鑒定我的壺 →</button>
+    </div>
+
+    <!-- 四大名泥 -->
+    <div class="hall-section" data-reveal>
+      <span class="watermark-cn" aria-hidden="true">泥</span>
+      <p class="eyebrow-cn">泥料科普</p>
+      <h2 class="section-title">四大名泥</h2>
+      <p class="section-sub">同一座黃龍山，礦層深淺不同，燒出來的顏色與質感也天差地別。</p>
+      <div class="tab-strip" id="clayTabs"></div>
+      <div class="hall-panel" id="clayPanel"></div>
+    </div>
+
+    <div class="hall-connector" aria-hidden="true" data-reveal><i></i><span>◆</span><i></i></div>
+
+    <!-- 经典器型谱 -->
+    <div class="hall-section" data-reveal>
+      <span class="watermark-cn" aria-hidden="true">器</span>
+      <p class="eyebrow-cn">器型科普</p>
+      <h2 class="section-title">經典器型譜</h2>
+      <p class="section-sub">光貨見功力，花貨見巧思——點開每一款，看造型從何而來。</p>
+      <div class="shape-grid" id="shapeGrid"></div>
+    </div>
+
+    <div class="hall-connector" aria-hidden="true" data-reveal><i></i><span>◆</span><i></i></div>
+
+    <!-- 名家堂 · 大师谱 -->
+    <div class="hall-section" data-reveal>
+      <span class="watermark-cn" aria-hidden="true">人</span>
+      <p class="eyebrow-cn">大師譜</p>
+      <h2 class="section-title">名家堂</h2>
+      <p class="section-sub">收錄歷代與當代制壺匠人的款識，輸入姓名即可檢索。</p>
+      <input type="text" class="master-search" id="masterSearch" placeholder="搜索名家，例如：顧景舟">
+      <div class="master-grid" id="masterGrid"></div>
+    </div>
+
+    <div class="hall-connector" aria-hidden="true" data-reveal><i></i><span>◆</span><i></i></div>
+
+    <!-- 三层鉴定体系（承接到功能页） -->
+    <div class="hall-section hall-bridge" data-reveal>
+      <span class="watermark-cn" aria-hidden="true">鑒</span>
+      <p class="eyebrow-cn">從認識到鑒定</p>
+      <h2 class="section-title">三層鑒定體系</h2>
+      <div class="funnel">
+        <div class="funnel-step"><div class="n">01</div><div><h3>免費 AI 多模態初檢</h3><p>拍攝全貌、底款、內壁、泥料微距，AI 給出全手工概率與風險提示，門檻低、有趣味。</p></div></div>
+        <div class="funnel-step"><div class="n">02</div><div><h3>寄送式光譜元素檢測</h3><p>順豐取件寄往北京實驗室，XRF 光譜測出真實元素含量，生成可分享的權威證書。</p></div></div>
+        <div class="funnel-step"><div class="n">03</div><div><h3>大師正品原礦商城</h3><p>若檢測出化工泥或機車壺風險，直接推薦官方溯源的原礦正品，避免二次踩坑。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI FREE CHECK -->
+  <section class="view" id="view-ai">
+    <h2 class="section-title">免費 AI 智能初檢</h2>
+    <p class="section-sub">上傳四張照片，AI 從器型、底款、內壁、泥料紋理給出初步判斷（本演示使用模擬影像與模擬數據）。</p>
+
+    <div class="grid2">
+      <div>
+        <div class="upload-box" id="uploadBox">
+          <div style="font-size:32px;">📷</div>
+          <p style="margin:10px 0 0;">點擊模擬上傳壺的照片</p>
+          <p style="font-size:12px; margin-top:4px;">全貌 · 底款 · 內壁 · 泥料微距</p>
+        </div>
+        <div class="shot-list" id="shotList"></div>
+        <button class="btn" style="margin-top:20px;" id="runAiBtn" disabled>開始 AI 初步鑒定</button>
+      </div>
+      <div class="card" id="aiResultBox">
+        <p style="color:var(--ink-soft); font-size:14px;">上傳照片後，這裡會顯示 AI 初檢報告。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECTRAL PAID -->
+  <section class="view" id="view-spectral">
+    <h2 class="section-title">權威光譜元素檢測中心</h2>
+    <p class="section-sub">X 射線螢光光譜儀（XRF）無損分析泥料元素構成。無論是購買檢測、還是上傳已有數據，都能生成一份專業可讀的元素分析報告。</p>
+
+    <!-- 服務入口：三種方式 -->
+    <div id="entryStage">
+      <div class="entry-grid">
+        <div class="entry-card" data-entry="buy">
+          <div class="entry-icon">
+            <svg viewBox="0 0 100 100"><path d="M30 55 Q30 42 50 42 Q70 42 70 55 L68 72 Q68 80 50 80 Q32 80 32 72 Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M70 50 Q80 50 80 56 Q80 62 70 61" fill="none" stroke="currentColor" stroke-width="3"/><path d="M46 34 L54 34 L57 42 L43 42 Z" fill="currentColor" opacity=".35"/></svg>
+          </div>
+          <h3>購買檢測服務</h3>
+          <p class="entry-desc">寄送樣品至北京合作實驗室，XRF 實測元素含量，出具<strong>蓋章權威報告</strong>。</p>
+          <ul class="entry-points">
+            <li>三種檢測套餐可選</li>
+            <li>順豐取件 · 全程物流追蹤</li>
+            <li>含機構認證蓋章電子報告</li>
+          </ul>
+          <button class="btn entry-btn" data-entry-go="buy">選擇套餐，開始檢測 →</button>
+        </div>
+
+        <div class="entry-card" data-entry="external">
+          <div class="entry-icon">
+            <svg viewBox="0 0 100 100"><path d="M50 22 L50 58 M50 58 L40 48 M50 58 L60 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M26 44 Q18 44 18 54 Q18 62 26 64 L30 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M74 44 Q82 44 82 54 Q82 62 74 64 L70 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M30 76 L70 76" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+          </div>
+          <h3>上傳外部檢測數據</h3>
+          <p class="entry-desc">在其他機構檢測過？直接上傳數據文件，系統自動識別並生成<strong>專業解讀報告（無機構蓋章，僅供參考）</strong>。</p>
+          <ul class="entry-points">
+            <li>支援 CSV / JSON / TXT 數據文件</li>
+            <li>自動識別元素含量，生成全維度解讀</li>
+            <li>標示「非本機構檢測」，不蓋章</li>
+          </ul>
+          <button class="btn entry-btn" data-entry-go="external">上傳外部數據 →</button>
+        </div>
+
+        <div class="entry-card" data-entry="ours">
+          <div class="entry-icon">
+            <svg viewBox="0 0 100 100"><path d="M26 20 L74 20 L74 84 L50 70 L26 84 Z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/><path d="M38 38 L62 38" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><path d="M38 50 L58 50" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>上傳本機構檢測數據</h3>
+          <p class="entry-desc">已購買本機構檢測並收到數據？上傳數據後，生成<strong>帶機構認證蓋章的正式權威報告</strong>。</p>
+          <ul class="entry-points">
+            <li>比對實驗室檔案庫，核驗訂單</li>
+            <li>生成蓋章版正式報告</li>
+            <li>含數字 DNA 指紋，防篡改可溯源</li>
+          </ul>
+          <button class="btn entry-btn" data-entry-go="ours">上傳本機構數據 →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 購買流程：套餐選擇 -->
+    <div id="pkgStage" style="display:none">
+      <button class="btn small ghost stage-back" data-back="entry">← 返回服務入口</button>
+      <div class="grid3" id="pkgGrid"></div>
+      <button class="btn" style="margin-top:24px;" id="orderBtn" disabled>生成寄件單，寄往北京實驗室</button>
+    </div>
+
+    <!-- 購買流程：物流 + 檢測進度 -->
+    <div id="trackStage" style="display:none">
+      <button class="btn small ghost stage-back" data-back="entry">← 返回服務入口</button>
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+          <h3 style="margin:0;">訂單 <span id="orderNo"></span></h3>
+          <span style="font-size:13px; color:var(--ink-soft);" id="pkgNameTag"></span>
+        </div>
+        <div class="timeline" id="timelineBox"></div>
+        <button class="btn small" id="advanceBtn">模擬推進物流 / 檢測進度 →</button>
+      </div>
+    </div>
+
+    <!-- 上傳數據（外部 / 本機構 共用 UI） -->
+    <div id="uploadStage" style="display:none">
+      <button class="btn small ghost stage-back" data-back="entry">← 返回服務入口</button>
+      <div class="card upload-panel">
+        <h3 id="uploadTitle" style="margin:0 0 6px;"></h3>
+        <p class="section-sub" id="uploadDesc" style="margin:0 0 22px;"></p>
+        <div class="upload-box" id="dataUploadBox">
+          <div style="font-size:32px; line-height:1;">⤒</div>
+          <p style="margin:10px 0 0;">點擊選擇數據文件</p>
+          <p style="font-size:12px; margin-top:4px;">CSV · JSON · TXT（含元素名稱與含量即可）</p>
+        </div>
+        <input type="file" id="dataFileInput" accept=".csv,.json,.txt,text/plain,application/json" style="display:none">
+        <div class="upload-actions">
+          <button class="btn ghost" id="useSampleBtn">使用示例數據演示</button>
+          <button class="btn" id="genReportBtn" disabled>生成專業分析報告</button>
+        </div>
+        <p class="hint" id="uploadHint"></p>
+      </div>
+    </div>
+
+    <!-- 分析報告 -->
+    <div id="reportStage" style="display:none">
+      <div class="report-toolbar">
+        <button class="btn small ghost" id="reportBackBtn">← 返回</button>
+        <div style="flex:1;"></div>
+        <button class="btn small ghost" id="shareBtn">分享報告</button>
+        <button class="btn small" id="printBtn">列印 / 儲存 PDF</button>
+      </div>
+      <article class="analysis-report" id="analysisReport"></article>
+    </div>
+  </section>
+
+  <!-- MALL -->
+  <section class="view" id="view-mall">
+    <h2 class="section-title">大師正品原礦商城</h2>
+    <p class="section-sub">全部商品附官方溯源證書，來自宜興簽約手藝人與正規泥料廠。</p>
+    <div class="banner" id="mallBanner">若你在光譜檢測中發現壺存在化工泥或機車壺風險，這裡是官方推薦的避坑購買渠道。</div>
+    <div class="grid3" id="mallGrid"></div>
+  </section>
+
+</main>
+
+
+<script src="js/nav.js"></script>
+<script src="js/home.js"></script>
+<script src="js/ai-check.js"></script>
+<script src="js/report-engine.js"></script>
+<script src="js/spectral.js"></script>
+<script src="js/mall.js"></script>
+</body>
+</html>

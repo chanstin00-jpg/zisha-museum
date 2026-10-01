@@ -1,0 +1,648 @@
+/* ============================================================
+   首頁專屬樣式：紫砂壺文化與數字展廳
+   採用新中式 / 東方美學：留白、水墨微動效、低飽和茶青／朱泥／紫泥暗紫
+   以下變量僅作用於 #view-home，不影響其他功能頁面的既有配色
+   ============================================================ */
+#view-home{
+  --home-rice:#F1ECDD;
+  --home-ink:#2B2620;
+  --home-ink-soft:#6B6153;
+  --home-tea:#5B7267;      /* 茶青色 */
+  --home-zhu:#9C5040;      /* 朱泥紅（低飽和） */
+  --home-zi:#4B3244;       /* 紫泥暗紫 */
+  --home-seal:#A83B2E;     /* 印泥紅，僅用於名家堂印章，全站唯一高飽和色 */
+  --home-line: rgba(43,38,32,0.14);
+  padding:0 !important;
+}
+#view-home .eyebrow-cn{
+  font-family:'Noto Serif SC',serif; font-size:13px; letter-spacing:4px;
+  color:var(--home-tea); margin:0 0 10px;
+}
+#view-home .section-title{ color:var(--home-ink); }
+#view-home .section-sub{ color:var(--home-ink-soft); }
+
+/* ---------- 首屏：水墨微動效 ---------- */
+.hall-hero{
+  position:relative; overflow:hidden; background:var(--home-rice);
+  padding:90px 24px 100px; margin:0 -24px 8px;
+  color:var(--home-ink);
+}
+.ink-wash .blot{
+
+  position:absolute;
+
+  border-radius:50%;
+
+  filter:blur(58px);
+
+  mix-blend-mode:multiply;
+
+  opacity:0.18;
+
+  animation:driftBlot 22s ease-in-out infinite;
+}
+.blot.b1{ width:320px; height:320px; left:-60px; top:-40px; background:var(--home-tea); }
+.blot.b2{ width:260px; height:260px; right:-40px; top:60px; background:var(--home-zi); animation-delay:-7s; }
+.blot.b3{ width:220px; height:220px; left:30%; bottom:-80px; background:var(--home-zhu); animation-delay:-14s; }
+.blot.b4{
+  width:420px;
+  height:420px;
+
+  right:5%;
+  bottom:-120px;
+
+  background:#4B3244;
+
+  animation-delay:-10s;
+}
+@keyframes driftLeaf{
+
+    0%{
+        transform:
+            translate(0,0)
+            rotate(0deg)
+            scale(.8);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:.12;
+    }
+
+    50%{
+        transform:
+            translate(-250px,180px)
+            rotate(120deg)
+            scale(1);
+    }
+
+    100%{
+        transform:
+            translate(-500px,420px)
+            rotate(260deg)
+            scale(.75);
+
+        opacity:0;
+    }
+}
+@media (prefers-reduced-motion: reduce){ .ink-wash .blot{ animation:none; } }
+
+.brush-swoosh{
+  position:absolute; right:6%; top:18%; width:280px; color:var(--home-zhu);
+  opacity:0.5; z-index:0;
+}
+.brush-swoosh path{
+  stroke-dasharray:600; stroke-dashoffset:600;
+  animation:drawSwoosh 2.4s ease-out 0.3s forwards;
+}
+@keyframes drawSwoosh{ to{ stroke-dashoffset:0; } }
+@media (prefers-reduced-motion: reduce){ .brush-swoosh path{ animation:none; stroke-dashoffset:0; } }
+
+.hall-hero > *{ position:relative; z-index:1; max-width:640px; }
+.hall-hero h1{ font-size:42px; line-height:1.4; margin:0 0 18px; }
+.hall-hero .lead{ font-size:16px; color:var(--home-ink-soft); max-width:50ch; margin:0 0 30px; }
+.hall-cta{ background:var(--home-zi); }
+.hall-cta:hover{ background:var(--home-zhu); }
+
+/* ---------- 通用段落容器 + 水印字 ---------- */
+.hall-section{
+  position:relative; padding:64px 0; border-top:1px solid var(--home-line);
+}
+.hall-section.hall-bridge{ padding-bottom:88px; }
+.watermark-cn{
+  position:absolute; right:0; top:36px; font-family:'Ma Shan Zheng',cursive;
+  font-size:150px; line-height:1; color:var(--home-ink); opacity:0.05;
+  pointer-events:none; user-select:none;
+}
+
+/* ---------- 泥料標籤頁 ---------- */
+.tab-strip{ display:flex; gap:8px; flex-wrap:wrap; margin:20px 0 24px; }
+.tab-strip button{
+  font:inherit; font-size:14px; padding:8px 18px; border-radius:99px;
+  border:1px solid var(--home-line); background:none; color:var(--home-ink-soft); cursor:pointer;
+}
+.tab-strip button.active{ background:var(--home-zi); border-color:var(--home-zi); color:var(--home-rice); }
+
+.hall-panel{
+  display:grid; grid-template-columns:140px 1fr; gap:28px; align-items:center;
+  border:1px solid var(--home-line); padding:28px; background:var(--home-rice);
+}
+.clay-swatch{ width:100%; aspect-ratio:1/1; border-radius:50%; box-shadow:inset 0 0 0 1px rgba(0,0,0,0.06); }
+.hall-panel h3{ font-family:'Noto Serif SC',serif; font-size:20px; margin:0 0 4px; color:var(--home-ink); }
+.hall-panel .origin{ font-size:13px; color:var(--home-tea); margin:0 0 10px; }
+.hall-panel p.desc{ margin:0; font-size:14.5px; color:var(--home-ink-soft); max-width:56ch; }
+
+/* ---------- 器型卡片 ---------- */
+.shape-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:20px; }
+.shape-card{ border:1px solid var(--home-line); background:var(--home-rice); padding:22px; }
+.shape-card svg{ width:56px; height:56px; color:var(--home-zi); }
+.shape-card h4{ font-family:'Noto Serif SC',serif; font-size:16px; margin:14px 0 4px; color:var(--home-ink); }
+.shape-card .era{ font-size:12px; color:var(--home-tea); margin:0 0 8px; }
+.shape-card p{ margin:0; font-size:13.5px; color:var(--home-ink-soft); }
+
+/* ---------- 名家堂 ---------- */
+.master-search{
+  width:100%; max-width:360px; font:inherit; font-size:14px; padding:10px 16px;
+  border:1px solid var(--home-line); background:var(--home-rice); color:var(--home-ink);
+  margin:4px 0 28px; border-radius:2px;
+}
+.master-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.master-card{ border:1px solid var(--home-line); background:var(--home-rice); padding:18px; text-align:center; }
+.seal{
+  width:52px; height:52px; margin:0 auto 12px; background:var(--home-seal); color:#F1ECDD;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Ma Shan Zheng',cursive; font-size:26px; border-radius:2px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.25);
+}
+.master-card h4{ font-size:14.5px; margin:0 0 3px; color:var(--home-ink); }
+.master-card .era{ font-size:11.5px; color:var(--home-tea); margin:0 0 8px; }
+.master-card p{ margin:0; font-size:12.5px; color:var(--home-ink-soft); }
+.master-card.hidden{ display:none; }
+
+@media (max-width:760px){
+  .hall-panel{ grid-template-columns:1fr; }
+  .shape-grid{ grid-template-columns:1fr 1fr; }
+  .master-grid{ grid-template-columns:1fr 1fr; }
+  .hall-hero h1{ font-size:32px; }
+  .brush-swoosh{ display:none; }
+}
+
+/* ============================================================
+   壺鑒 UI 2.0
+   首頁：水墨展廳
+   AI：茶青科技感
+   光譜：實驗室科技感
+   商城：高端精品感
+============================================================ */
+
+/* =========================
+   全站 Title 統一風格
+========================= */
+
+.section-title{
+    color:#6B2418;
+    font-weight:700;
+    letter-spacing:2px;
+    position:relative;
+    display:inline-block;
+    margin-bottom:18px;
+    text-shadow:
+        0 1px 0 rgba(255,255,255,.5);
+}
+
+.section-title::after{
+    content:"";
+    display:block;
+    width:72px;
+    height:4px;
+    margin-top:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #E0C27A,
+            #C89A42
+        );
+
+    border-radius:999px;
+}
+
+/* =========================
+   首頁（數字展廳）
+========================= */
+
+#view-home .section-title{
+    color:#6B2418 !important;
+}
+
+#view-home .hall-section{
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 18% 25%,
+            rgba(70,70,70,.05),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 75% 65%,
+            rgba(120,120,120,.04),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            180deg,
+            #FAF7F2 0%,
+            #F6F1EA 48%,
+            #EFE7DB 100%
+        );
+
+    border-radius:24px;
+
+    padding:64px 32px;
+
+    margin-bottom:24px;
+
+    border:1px solid rgba(107,36,24,.08);
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.04);
+}
+
+#view-home .hall-section::before{
+    content:"";
+
+    position:absolute;
+
+    top:-80px;
+    left:-60px;
+
+    width:220px;
+    height:220px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,0,0,.05),
+            transparent 70%
+        );
+
+    filter:blur(20px);
+
+    pointer-events:none;
+}
+
+/* =========================
+   AI 初檢頁
+   茶青科技感
+========================= */
+
+#view-ai{
+
+    padding:56px;
+
+    border-radius:24px;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(91,114,103,.08),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            180deg,
+            #F8FAF7 0%,
+            #EEF4EF 100%
+        );
+
+    border:1px solid rgba(91,114,103,.1);
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.04);
+}
+
+#view-ai .section-title{
+    color:#2F5548 !important;
+}
+
+#view-ai .section-title::after{
+    background:
+        linear-gradient(
+            90deg,
+            #78A08D,
+            #4A6E61
+        );
+}
+
+/* =========================
+   光譜檢測頁
+   實驗室科技感
+========================= */
+
+#view-spectral{
+
+    padding:56px;
+
+    border-radius:24px;
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(74,98,128,.08),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            180deg,
+            #F5F8FA 0%,
+            #EBF0F4 100%
+        );
+
+    border:1px solid rgba(74,98,128,.12);
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.04);
+}
+
+#view-spectral .section-title{
+    color:#35506A !important;
+}
+
+#view-spectral .section-title::after{
+    background:
+        linear-gradient(
+            90deg,
+            #87A9C6,
+            #55769A
+        );
+}
+
+/* =========================
+   商城頁
+   高端精品感
+========================= */
+
+#view-mall{
+
+    padding:56px;
+
+    border-radius:24px;
+
+    background:
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(201,154,66,.08),
+            transparent 22%
+        ),
+
+        linear-gradient(
+            180deg,
+            #FAF7F2 0%,
+            #F2E7D7 100%
+        );
+
+    border:1px solid rgba(201,154,66,.15);
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.04);
+}
+
+#view-mall .section-title{
+    color:#7A5422 !important;
+}
+
+#view-mall .section-title::after{
+    background:
+        linear-gradient(
+            90deg,
+            #E2C27A,
+            #C79A3F
+        );
+}
+
+/* =========================
+   手機優化
+========================= */
+
+@media (max-width:768px){
+
+    #view-ai,
+    #view-spectral,
+    #view-mall{
+        padding:28px 20px;
+    }
+
+    .section-title{
+        font-size:28px;
+    }
+}
+
+/* ========= 真實茶葉飄動 ========= */
+
+.tea-leaf{
+
+    position:absolute;
+
+    width:42px;
+    height:42px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:1;
+
+    background-repeat:no-repeat;
+    background-size:contain;
+
+    animation:
+        driftLeaf 18s linear infinite;
+}
+
+/* 茶葉SVG */
+
+.tea-leaf{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%235B7267' d='M441 68c-55 20-142 67-208 133S120 354 95 444c88-22 177-71 244-138S454 124 441 68z'/%3E%3Cpath d='M126 409C189 323 266 246 374 136' stroke='%23485F55' stroke-width='32' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.leaf1{
+    scale:1;
+    top:8%;
+    right:5%;
+
+    animation-delay:0s;
+}
+
+.leaf2{
+    scale: 0.7em;
+    filter:blur(1px);
+    top:20%;
+    right:2%;
+
+    animation-delay:-6s;
+}
+
+.leaf3{
+    scale: 0.5em;
+    filter:blur(2px);
+    top:35%;
+    right:10%;
+
+    animation-delay:-12s;
+}
+
+.leaf4{
+    top:22%;
+    right:34%;
+    scale:.8;
+    opacity:.1;
+    animation-delay:-2s;
+}
+
+.leaf5{
+    top:38%;
+    right:42%;
+    scale:.7;
+    opacity:.08;
+    animation-delay:-9s;
+}
+
+.leaf6{
+    top:66%;
+    right:8%;
+    scale:.9;
+    opacity:.12;
+    animation-delay:-12s;
+}
+
+.leaf7{
+    top:82%;
+    right:38%;
+    scale:.6;
+    opacity:.08;
+    animation-delay:-15s;
+}
+/* =========================
+   紫砂壺輪廓
+========================= */
+
+.hero-pot{
+
+    position:absolute;
+
+    right:6%;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:520px;
+    height:520px;
+
+    opacity: 0.09;;
+
+    pointer-events:none;
+
+    border-radius:50%;
+
+    background:
+      radial-gradient(
+         circle,
+         rgba(122,58,42,.15) 0%,
+         rgba(122,58,42,.05) 45%,
+         transparent 75%
+      );
+}
+
+.hall-cta{
+
+    background:
+      linear-gradient(
+         135deg,
+         #6B2418,
+         #4B3244
+      ) !important;
+
+    border-radius:14px;
+
+    box-shadow:
+      0 10px 24px rgba(75,50,68,.18);
+
+    transition:.3s;
+}
+
+.hall-cta:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+      0 16px 36px rgba(75,50,68,.25);
+}
+
+/* ============================================================
+   首頁 2.0：板塊間距、銜接與滾動動效
+   ============================================================ */
+
+/* 首屏：加大底部留白 + 向下漸變過渡，與首個板塊自然銜接 */
+.hall-hero{
+    padding-bottom:150px;
+    margin-bottom:60;
+}
+.hall-hero::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:0; height:110px;
+    background:linear-gradient(180deg, var(--home-rice) 0%, rgba(241,236,221,0) 100%);
+    pointer-events:none;
+}
+
+/* 板塊：加大上下留白與板塊間距，呼吸感更足 */
+#view-home .hall-section{
+    padding:84px 40px;
+    margin-bottom:46px;
+}
+#view-home .hall-section.hall-bridge{ padding-bottom:104px; margin-bottom:0; }
+.hall-section:first-of-type{ margin-top:14px; }
+
+/* 板塊間裝飾銜接（線 + 菱形），替代生硬的卡片堆疊 */
+.hall-connector{
+    display:flex; align-items:center; gap:14px;
+    margin:6px 0 42px; padding:0 10%;
+    opacity:.85;
+}
+.hall-connector i{
+    flex:1; height:1px;
+    background:linear-gradient(90deg, transparent, rgba(107,36,24,.22));
+}
+.hall-connector i:last-child{
+    background:linear-gradient(90deg, rgba(107,36,24,.22), transparent);
+}
+.hall-connector span{
+    position:relative;
+    width:34px; height:34px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    color:#C89A42; font-size:12px;
+    font-family:'Noto Serif SC',serif;
+}
+.hall-connector span::before{
+    content:""; position:absolute; inset:2px;
+    border:1px solid rgba(200,154,66,.5);
+    background:rgba(200,154,66,.06);
+    transform:rotate(45deg); border-radius:4px;
+}
+
+/* 板塊內元素：給 tab、面板、卡片、漏斗步驟預留漸現狀態 */
+#view-home .hall-section,
+.hall-connector,
+.tab-strip, .hall-panel, .shape-grid, .master-grid, .master-search, .funnel{
+    transition:opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1);
+}
+.reveal-init{ opacity:0; transform:translateY(26px); }
+.revealed{ opacity:1; transform:translateY(0); }
+/* 子卡片錯落延遲 */
+.shape-card, .master-card, .funnel-step, .hall-panel, .tab-strip{
+    transition:opacity .65s ease, transform .65s cubic-bezier(.22,.61,.36,1);
+}
+.shape-card.reveal-init, .master-card.reveal-init, .funnel-step.reveal-init,
+.hall-panel.reveal-init, .tab-strip.reveal-init{ opacity:0; transform:translateY(22px); }
+.shape-card.revealed, .master-card.revealed, .funnel-step.revealed,
+.hall-panel.revealed, .tab-strip.revealed{ opacity:1; transform:translateY(0); }
+
+@media (prefers-reduced-motion: reduce){
+    .reveal-init, .shape-card.reveal-init, .master-card.reveal-init,
+    .funnel-step.reveal-init, .hall-panel.reveal-init, .tab-strip.reveal-init{
+        opacity:1 !important; transform:none !important;
+        transition:none !important;
+    }
+    .hall-connector{ display:none; }
+}
+
+/* 水印字滾動視差：僅在有動畫偏好時生效 */
+.watermark-cn{ will-change:transform; }
+@media (max-width:760px){
+    #view-home .hall-section{ padding:56px 22px; margin-bottom:34px; }
+    .hall-connector{ margin:0 0 30px; padding:0 6%; }
+    .hall-hero{ padding-bottom:120px; }
+}
